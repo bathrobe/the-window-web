@@ -5,8 +5,8 @@ import { RiArticleFill } from "react-icons/ri";
 import { BsSearch } from "react-icons/bs";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IconContext } from "react-icons";
-
-export default function Icon({ type }) {
+import { GiWindow } from "react-icons/gi";
+export default function Icon({ type, style, size }) {
   let icon;
   switch (type) {
     case "calendar":
@@ -24,10 +24,13 @@ export default function Icon({ type }) {
     case "menu":
       icon = <HiOutlineMenuAlt3 />;
       break;
+    case "window":
+      icon = <GiWindow />;
+      break;
   }
 
   return (
-    <IconContext.Provider value={{ className: "text-gray-400" }}>
+    <IconContext.Provider value={{ size: size, className: style }}>
       {icon}
     </IconContext.Provider>
   );

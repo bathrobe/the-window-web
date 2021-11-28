@@ -22,14 +22,26 @@ export default function Home({ posts }) {
   return (
     <div>
       <header className="">
-        <div className="flex justify-between">
-          <Icon type="search" />
-          <div>
-            {/* <img src="/window.png" alt="logo" className="max-h-md" /> */}
-            <h1 className="text-2xl text-gray-300 font-bold">The Window</h1>
+        <div className="flex justify-between my-8 max-w-container mx-auto">
+          <div className="flex flex-col justify-between">
+            <div className="flex">
+              <Icon style="text-gray-200" size="1.5em" type="search" />
+              <Icon style="text-gray-200" size="1.5em" type="menu" />
+            </div>
+            <p className="text-gray-200">Today's date</p>
           </div>
 
-          <Icon type="menu" />
+          <div>
+            <Icon style="text-gray-200" size="6em" type="window" />
+            {/* <img src="/window.png" alt="logo" className="max-h-md" /> */}
+            {/* <h1 className="text-2xl text-gray-300 font-bold">The Window</h1> */}
+          </div>
+          <div className="flex flex-col justify-between">
+            <div className="flex">
+              <button className="bg-gray-700">Subscribe</button>
+            </div>
+            <p className="text-gray-200">toggle graph mode</p>
+          </div>
         </div>
         <nav className="py-4 flex justify-center"></nav>
       </header>
