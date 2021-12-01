@@ -4,16 +4,16 @@ import ImageAtom from "../atoms/ImageAtom";
 import Text from "../atoms/Text";
 import Link from "next/link";
 
-export default function ListCard({ post, type, colspan }) {
+export default function ListCard({ post, type }) {
   let styles = {};
   switch (type) {
-    case "ticker":
-      styles.wrapper = `p-4 pb-8 flex col-span-4`;
+    case "tiny":
+      styles.wrapper = `p-4 pb-10 flex col-span-4`;
       styles.imgSize = "s";
       styles.headerSize = "s";
       break;
-    case "tert":
-      styles.wrapper = `p-4 flex col-span-9`;
+    case "medium":
+      styles.wrapper = `p-4 pb-8 flex col-span-9`;
       styles.imgSize = "m";
       styles.headerSize = "xl";
       styles.metaSize = "m";
@@ -34,7 +34,7 @@ export default function ListCard({ post, type, colspan }) {
         <MetaText size={styles.size} type="primary">
           By <span className="uppercase">{post.author.name}</span>
         </MetaText>
-        {type == "tert" ? (
+        {type == "medium" ? (
           <Text size={styles.metaSize}>{post.featureDescription}</Text>
         ) : (
           ""

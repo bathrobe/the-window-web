@@ -7,7 +7,7 @@ import Heading from "../components/atoms/Heading";
 import Card from "../components/elements/Card";
 import Text from "../components/atoms/Text";
 import Icon from "../components/atoms/Icon";
-import ImageAtom from "../components/atoms/ImageAtom";
+import Header from "../components/organisms/Header";
 export default function Home({ posts }) {
   const post = posts[0];
   let ticker = posts.slice(0, 3);
@@ -21,35 +21,11 @@ export default function Home({ posts }) {
 
   return (
     <div>
-      <header className="">
-        <div className="flex justify-between my-8 max-w-container mx-auto">
-          <div className="flex flex-col justify-between">
-            <div className="flex">
-              <Icon style="text-gray-200" size="1.5em" type="search" />
-              <Icon style="text-gray-200" size="1.5em" type="menu" />
-            </div>
-            <p className="text-gray-200">Today's date</p>
-          </div>
-
-          <div>
-            <Icon style="text-gray-200" size="6em" type="window" />
-            {/* <img src="/window.png" alt="logo" className="max-h-md" /> */}
-            {/* <h1 className="text-2xl text-gray-300 font-bold">The Window</h1> */}
-          </div>
-          <div className="flex flex-col justify-between">
-            <div className="flex">
-              <button className="bg-gray-700">Subscribe</button>
-            </div>
-            <p className="text-gray-200">toggle graph mode</p>
-          </div>
-        </div>
-        <nav className="py-4 flex justify-center"></nav>
-      </header>
-
+      <Header></Header>
       <main className="max-w-container mx-auto grid grid-cols-12 justify-evenly text-gray-200">
         {/* top box region */}
         {ticker.map((p) => (
-          <ListCard post={p} type="ticker" />
+          <ListCard post={p} type="tiny" />
         ))}
         {/* top box region over */}
 
@@ -57,17 +33,17 @@ export default function Home({ posts }) {
         {/* left side */}
         <aside className="col-span-3 flex flex-col justify-between">
           {leftFeatures.map((p) => (
-            <Card size="m" post={p} />
+            <Card type="medium" post={p} />
           ))}
         </aside>
         {/* center */}
         <section className="col-span-6">
-          <Card size="xl" post={mainFeature[0]} />
+          <Card type="big" post={mainFeature[0]} />
         </section>
         {/* right side */}
         <aside className="col-span-3">
           {rightFeatures.map((p) => (
-            <Card size="m" post={p} />
+            <Card type="medium" post={p} />
           ))}
         </aside>
         {/* main feature layout region over */}
@@ -75,7 +51,7 @@ export default function Home({ posts }) {
         {/* secondary layout grid region */}
         {secondaries.map((p) => (
           <article key={p._id} className="py-8 col-span-3">
-            <Card size="m" post={p} />
+            <Card type="medium" post={p} />
           </article>
         ))}
         {/* secondary layout grid region over*/}
@@ -83,7 +59,7 @@ export default function Home({ posts }) {
         {/* final scroll section */}
         <div className="col-span-8">
           {tertiaries.map((p) => (
-            <ListCard type="tert" post={p} />
+            <ListCard type="medium" post={p} />
           ))}
         </div>
         <div className="col-span-4">
