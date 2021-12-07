@@ -6,10 +6,8 @@ export default function Masthead() {
     <div className="grid grid-cols-3 my-8 max-w-container mx-auto">
       <div className="flex flex-col justify-between">
         <div className="flex">
-          <Icon style="text-gray-200" size="1.5em" type="search" />
           <Icon style="text-gray-200" size="1.5em" type="menu" />
         </div>
-        <p className="text-gray-200">Today's date</p>
       </div>
 
       <div className="justify-self-center">

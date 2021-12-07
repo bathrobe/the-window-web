@@ -4,7 +4,7 @@ import ImageAtom from "../atoms/ImageAtom";
 import Text from "../atoms/Text";
 import Link from "next/link";
 
-export default function Card({ post, type }) {
+export default function Card({ post, type, slug }) {
   const styles = {};
   switch (type) {
     case "big":
@@ -20,7 +20,12 @@ export default function Card({ post, type }) {
   }
   return (
     <article key={post._id} className={styles.wrapper}>
-      <ImageAtom orientation="landscape" url={post.mainImage} />
+      <ImageAtom
+        isLink
+        slug={`/posts/${post.slug}`}
+        orientation="landscape"
+        url={post.mainImage}
+      />
       <Heading size={styles.size}>
         <Link href={`/posts/${post.slug}`}>
           <a>{post.title}</a>

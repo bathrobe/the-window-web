@@ -4,11 +4,13 @@ import ImageAtom from "../atoms/ImageAtom";
 import Text from "../atoms/Text";
 import Link from "next/link";
 
-export default function ListCard({ post, type }) {
+export default function ListCard({ post, type, i }) {
   let styles = {};
   switch (type) {
     case "tiny":
-      styles.wrapper = `p-4 pb-10 flex col-span-4`;
+      styles.wrapper = `p-4 pb-10 flex col-span-4 ${
+        i === 1 ? "justify-self-center" : i === 2 ? "justify-self-end" : ""
+      }`;
       styles.imgSize = "s";
       styles.headerSize = "s";
       break;
@@ -18,12 +20,15 @@ export default function ListCard({ post, type }) {
       styles.headerSize = "xl";
       styles.metaSize = "m";
   }
+
   return (
     <article key={post._id} className={styles.wrapper}>
       <ImageAtom
+        isLink
         size={styles.imgSize}
         orientation="square"
         url={post.mainImage}
+        slug={`/posts/${post.slug}`}
       />
       <div className="pl-4">
         <Heading size={styles.headerSize}>
