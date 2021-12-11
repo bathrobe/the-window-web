@@ -4,14 +4,17 @@ import BlockContent from "@sanity/block-content-to-react";
 import { client } from "../../lib/sanity/client";
 import urlFor from "../../lib/sanity/urlFor";
 import { postQuery } from "../../lib/sanity/postQuery";
-
+import Heading from "../../components/atoms/Heading"
+import ImageAtom from "../../components/atoms/ImageAtom"
+import Header from "../../components/organisms/Header";
 export default function Post({ post }) {
   return (
     <>
-      <h1>{post?.title}</h1>
+    <Header></Header>
+      <Heading size="l">{post?.title}</Heading>
       <p>{post?.publishedAt}</p>
       <hr />
-      <img src={urlFor(post?.mainImage).width(300)} />
+      <ImageAtom url={post.mainImage} size="m" orientation="landscape"/>
       <BlockContent blocks={post?.body} />
       <Link href="/">
         <a>Back home</a>

@@ -1,6 +1,7 @@
 import MetaText from "../atoms/MetaText";
 import Heading from "../atoms/Heading";
 import ImageAtom from "../atoms/ImageAtom";
+import ImageLinkAtom from "../atoms/ImageLinkAtom"
 import Text from "../atoms/Text";
 import Link from "next/link";
 
@@ -20,12 +21,12 @@ export default function Card({ post, type, slug }) {
   }
   return (
     <article key={post._id} className={styles.wrapper}>
+    <ImageLinkAtom slug={`/posts/${post.slug}`}>    
       <ImageAtom
-        isLink
-        slug={`/posts/${post.slug}`}
+        size=""
         orientation="landscape"
         url={post.mainImage}
-      />
+      /></ImageLinkAtom>
       <Heading size={styles.size}>
         <Link href={`/posts/${post.slug}`}>
           <a>{post.title}</a>

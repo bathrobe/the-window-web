@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import urlFor from "../../lib/sanity/urlFor";
 import Link from "next/link";
-export default function ImageAtom({ url, size, orientation, isLink, slug }) {
+export default function ImageAtom({ url, size, orientation }) {
   let w;
   let h;
   switch (orientation) {
@@ -35,7 +35,7 @@ export default function ImageAtom({ url, size, orientation, isLink, slug }) {
     .height(h)
     .blur(75)
     .url();
-  let image = (
+  return (
     <Image
       src={src}
       placeholder="blur"
@@ -43,13 +43,5 @@ export default function ImageAtom({ url, size, orientation, isLink, slug }) {
       width={w}
       height={h}
     />
-  );
-  isLink
-    ? (image = (
-        <Link href={slug}>
-          <a>{image}</a>
-        </Link>
-      ))
-    : "";
-  return image;
+  )
 }

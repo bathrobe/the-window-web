@@ -18,7 +18,6 @@ export default function Home({ posts }) {
   let leftFeatures = [features[0], features[2]];
   let rightFeatures = [features[1], features[3]];
   let mainFeature = [features[4]];
-  console.log(mainFeature[0]);
   const [activeDisplay, setActiveDisplay] = useState("frontPage");
   return (
     <div>
@@ -42,7 +41,7 @@ export default function Home({ posts }) {
           <Card type="big" post={mainFeature[0]} slug={mainFeature[0].slug} />
         </section>
         {/* right side */}
-        <aside className="col-span-3">
+        <aside className="col-span-3 flex flex-col justify-between">
           {rightFeatures.map((p) => (
             <Card type="medium" post={p} slug={p.slug} />
           ))}
@@ -60,7 +59,7 @@ export default function Home({ posts }) {
         {/* final scroll section */}
         <div className="col-span-8">
           {tertiaries.map((p) => (
-            <ListCard type="medium" post={p} />
+            <ListCard i type="medium" post={p} />
           ))}
         </div>
         <div className="col-span-4">
@@ -73,27 +72,6 @@ export default function Home({ posts }) {
         </div>
         {/* final scroll over */}
       </main>
-      <footer className="bg-gray-600">
-        <div className="flex justify-evenly max-w-4xl mx-auto py-12">
-          <section className="px-4">
-            <Text size="m">
-              <strong>About</strong>
-            </Text>
-            <Text size="s">Bounties</Text>
-            <Text size="s">Budget</Text>
-            <Text size="s">Roadmap</Text>
-          </section>
-          <section className="px-4">
-            <Text size="m">
-              <strong>Categories</strong>
-            </Text>
-            <Text size="s">Skills</Text>
-            <Text size="s">Phenomenologies</Text>
-            <Text size="s">Futurisms</Text>
-          </section>
-        </div>
-        copyright 2021 The Window
-      </footer>
     </div>
   );
 }

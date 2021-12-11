@@ -5,7 +5,7 @@ export default function Navbar() {
     <nav className=" max-w-container mx-auto flex justify-center">
       <NavLink path="/about">About</NavLink>
       <NavLink path="/bounties">Bounties</NavLink>
-      <NavLink path="/about">Categories</NavLink>
+      <NavLink path="/about">Join Us</NavLink>
     </nav>
   );
 }
