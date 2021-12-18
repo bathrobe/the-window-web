@@ -27,7 +27,6 @@ export default function Home({ posts }) {
         {ticker.map((p, idx) => (
           <ListCard post={p} i={idx} type="tiny" />
         ))}
-        {/* top box region over */}
 
         {/* main feature layout region */}
         {/* left side */}
